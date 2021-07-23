@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            // Ir a la lista de restaurantes
-            // reload();
+            Intent intent = new Intent(this, Restaurantes.class);
+            startActivity(intent);
         }
     }
 
