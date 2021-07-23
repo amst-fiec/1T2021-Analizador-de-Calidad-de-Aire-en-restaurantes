@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "65947803817",
+    "project_id": "analizadoraire",
+    "storage_bucket": "analizadoraire.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65947803817:android:d07ff13485a3ef802789b8",
+        "android_client_info": {
+          "package_name": "com.example.proyecto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "65947803817-00j1lidc1irt766j1mo0dtombk4bufu1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGpWuyV1RZWa_vg66qszNRMdav-6iUdEo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "65947803817-00j1lidc1irt766j1mo0dtombk4bufu1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

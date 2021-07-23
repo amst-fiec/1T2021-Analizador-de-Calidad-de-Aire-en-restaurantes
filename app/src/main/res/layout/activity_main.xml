@@ -4,34 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".MainActivity">
 
-<LinearLayout
-    android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/imageView2"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/LogoWindKINDNegro" />
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".MainActivity">
 
-    <TextView
-    android:id="@+id/txt_"
-    android:layout_width="match_parent"
-    android:layout_height="224dp"
-    android:gravity="center"
-    android:text="TextView"
-    android:textSize="24sp"
-    tools:text="Inicio de sesion con google" />
+        <ImageView
+            android:id="@+id/logoIS"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/logo_completo_negro" />
 
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Iniciar sesion" />
+        <TextView
+            android:id="@+id/LabelIS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:contentDescription="Label de la página de inicio de sesión"
+            android:gravity="center"
+            android:text="Iniciar Sesión"
+            android:textColor="#2656C5"
+            android:textIsSelectable="false"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            tools:text="Iniciar Sesión" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnISGoogle"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:text="Iniciar Sesión con Google"
+            app:cornerRadius="20dp"
+            tools:text="Iniciar Sesión con Google" />
+
+        <Button
+            android:id="@+id/btnISCorreo"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:onClick="goToMailLogin"
+            android:text="Iniciar sesion con correo"
+            app:cornerRadius="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/LnkForgotPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="¿Olvidó su contraseña?"
+                android:textColor="#55E5FD" />
+
+            <TextView
+                android:id="@+id/LnkRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="Registrarse"
+                android:textColor="#55E5FD" />
+        </LinearLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
