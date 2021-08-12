@@ -30,5 +30,36 @@ void loop() {
   Serial.print("°C");
   Serial.println(humedad);
   Serial.print("%");
+  
+  //Advertencias
+  if (medidaMQ135<181){
+      Serial.print("BUEN NIVEL DE GAS");  
+  }else if(medidaMQ135>=181 && medidaMQ135<225){
+    Serial.print("POBRE NIVEL DE GAS");  
+  }else if(medidaMQ135>=225 && medidaMQ135<300){
+    Serial.print("MAL NIVEL DE GAS");  
+  }else if(medidaMQ135>=300 && medidaMQ135<350){
+    Serial.print("Muerto");  
+  }else if(medidaMQ135>=350){
+    Serial.print("TOXICO");  
+  }
+
+  if (temperatura<22){
+      Serial.print("PELIGRO MUY FRIO");  
+  }else if(temperatura>=22 && temperatura<24){
+    Serial.print("FRIO");  
+  }else if(temperatura>=24 && temperatura<25){
+    Serial.print("CONFORT");  
+  }else if(temperatura>=25 && temperatura<27){
+    Serial.print("CALIENTE");  
+  }else if(temperatura>27){
+    Serial.print("PELIGRO SOFOCANTE");  
+  }
+
+  if(humedad>=50){
+    Serial.print("PELIGRO HUMEDAD");
+  }else if(humedad>=33 && humedad<40){
+    Serial.print("CONFORT HUMEDAD");
+  }
   delay(10000);
 }
