@@ -1,4 +1,4 @@
-package com.example.proyecto;
+package com.analizadoraire.windKind;
 
 import android.content.Context;
 

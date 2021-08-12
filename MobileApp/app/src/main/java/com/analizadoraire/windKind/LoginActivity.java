@@ -1,4 +1,4 @@
-package com.example.proyecto;
+package com.analizadoraire.windKind;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
