@@ -31,4 +31,5 @@ void loop() {
   // put your main code here, to run repeatedly:
   Firebase.setString(firebaseData,"temperatura",String("30"));
   Firebase.setString(firebaseData,"humedad",String("1"));
+  Firebase.setString(firebaseData, "CalidadDeAire",String("0");
 }
