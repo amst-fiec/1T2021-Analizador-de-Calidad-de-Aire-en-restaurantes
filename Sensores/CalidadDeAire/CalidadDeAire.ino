@@ -1,7 +1,5 @@
 #include "DHT.h"
 #define DHTTYPE DHT11
-#include <SoftwareSerial.h>
-SoftwareSerial s(3,1);
 
 float temperatura = 0;
 float humedad = 0;
@@ -9,15 +7,18 @@ float medidaMQ135 = 0;
 float calidadAire = 0;
 int pinMQ135 =A1;
 int pinDHT11=3;
+int pinSalTemp = 5;
+int pinSalHum = 6;
 
 int pinLEDR=4;
 int pinVERDE=5;
+float enviarTemp = 0;
+float enviarHum = 0;
+float enviarCal = 0;
 
 DHT dht(pinDHT11,DHTTYPE);//iniciar dht11
 
 void setup() {
-  // put your setup code here, to run once:
-  //pinmode(,OUTPUT);
   dht.begin();
   Serial.begin(9600);
 }
@@ -27,14 +28,14 @@ void loop() {
   temperatura = dht.readTemperature();
   humedad = dht.readHumidity();
   medidaMQ135 = analogRead(pinMQ135);
-  /*Serial.println(medidaMQ135,DEC);
+  Serial.println(medidaMQ135,DEC);
   Serial.println(temperatura);
   Serial.print("°C");
   Serial.println(humedad);
-  Serial.print("%");*/
+  Serial.print("%");
   
   //Advertencias
-  /*if (medidaMQ135<181){
+  if (medidaMQ135<181){
       Serial.print("BUEN NIVEL DE GAS");  
   }else if(medidaMQ135>=181 && medidaMQ135<225){
     Serial.print("POBRE NIVEL DE GAS");  
@@ -48,7 +49,7 @@ void loop() {
   
 
   if (temperatura<22){
-      Serial.print("PELIGRO MUY FRIO");  
+    Serial.print("PELIGRO MUY FRIO");  
   }else if(temperatura>=22 && temperatura<24){
     Serial.print("FRIO");  
   }else if(temperatura>=24 && temperatura<25){
@@ -63,7 +64,9 @@ void loop() {
     Serial.print("PELIGRO HUMEDAD");
   }else if(humedad>=33 && humedad<40){
     Serial.print("CONFORT HUMEDAD");
-  }*/
-  s.write(medidaMQ135);
+  }
+
+ // analogWrite(pinSalTemp,temperatura);
+ // analogWrite(pinSalHum, humedad);
   delay(10000);
 }
