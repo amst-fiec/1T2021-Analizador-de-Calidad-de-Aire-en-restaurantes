@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,7 +21,10 @@ public class Restaurantes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurantes);
 
-        String name = "", email = "", uid = "";
+        String name = "";
+        String email = "";
+        String uid = "";
+        final String[] message = {"Valor inicial"};
         Uri photoUrl;
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -36,13 +40,19 @@ public class Restaurantes extends AppCompatActivity {
             uid = user.getUid();
         }
 
+        Log.println(Log.DEBUG, "UUID", user.getUid());
+
+        updateData(name, email, uid, "okay normal");
+    }
+
+    public void updateData(String name, String email, String uid, String message){
         TextView data = (TextView) findViewById(R.id.data);
 
-        data.setText("Nombre: " + name + "\nEmail: " + email + "\nUUID: " + uid);
+        data.setText("Nombre: " + name + "\nEmail: " + email + "\nUUID: " + uid + "\nMessage: " + message);
     }
 
     public void logOut(View view){
-        FirebaseAuth.getInstance().signOut();
+        DBHelper.logOut();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
