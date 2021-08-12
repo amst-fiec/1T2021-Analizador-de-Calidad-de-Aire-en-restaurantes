@@ -14,40 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "65947803817-00j1lidc1irt766j1mo0dtombk4bufu1.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCGpWuyV1RZWa_vg66qszNRMdav-6iUdEo"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "65947803817-00j1lidc1irt766j1mo0dtombk4bufu1.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:65947803817:android:d07ff13485a3ef802789b8",
-        "android_client_info": {
-          "package_name": "com.example.proyecto"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "65947803817-o9tlip7tojpj7hr1tbmathjfiq2pqq23.apps.googleusercontent.com",
+          "client_id": "65947803817-7ocihiqd9oodcpun09ur1anvgoui0cu9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.proyecto",
-            "certificate_hash": "f53e53e368512bd2c8f74f423969a5ab30bf41bc"
+            "package_name": "com.analizadoraire.windKind",
+            "certificate_hash": "6d97ad5c3c09cc106458aab62bbfb7538adfced9"
           }
         },
         {
