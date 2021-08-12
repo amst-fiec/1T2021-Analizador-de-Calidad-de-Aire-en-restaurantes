@@ -42,12 +42,11 @@
             android:id="@+id/btnISGoogle"
             android:layout_width="310dp"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/common_google_signin_btn_icon_dark"
             android:text="Iniciar Sesión con Google"
-            android:textColor="@color/black"
             android:textIsSelectable="false"
-            app:backgroundTint="@color/white"
             app:cornerRadius="20dp"
+            app:icon="@drawable/google_logo"
+            app:iconSize="20dp"
             tools:text="Iniciar Sesión con Google" />
 
         <Space
