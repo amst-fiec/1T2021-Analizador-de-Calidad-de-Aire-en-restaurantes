@@ -10,6 +10,9 @@ WiFiClient client;
 FirebaseData firebaseData;
 const char* ssid = "NETLIFE-BARATAU";
 const char* contraseña = "Antonio68";
+float temperatura = 0;
+float humedad = 0;
+float calidad = 0;
 
 void setup() {
   // put your setup code here, to run once:
@@ -23,13 +26,13 @@ void setup() {
   Serial.print(" ");
   Serial.print("IP: ");
   Serial.println(WiFi.localIP());
-
   Firebase.begin(FIREBASE_HOST,FIREBASE_AUTH);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Firebase.setString(firebaseData,"temperatura",String("30"));
-  Firebase.setString(firebaseData,"humedad",String("1"));
-  Firebase.setString(firebaseData, "CalidadDeAire",String("0");
+  calidad = analogRead(A0);
+  Firebase.setFloat(firebaseData,"temperatura",temperatura);
+  Firebase.setFloat(firebaseData,"humedad",humedad);
+  Firebase.setFloat(firebaseData, "CalidadDeAire",calidad);
 }
