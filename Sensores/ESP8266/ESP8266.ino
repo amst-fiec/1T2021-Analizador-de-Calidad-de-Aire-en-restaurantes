@@ -42,11 +42,11 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   HTTPClient http;
-  http.begin(client,"https//firestore.googleapis.com/v1/projects/analizadoraire/databases/(default)/documents/sensores/500291ECB86B?currentDocument.exists=false");
+  http.begin(client, "https//firestore.googleapis.com/v1/projects/analizadoraire/databases/(default)/documents/sensores/500291ECB86B?currentDocument.exists=false");
   temperatura = dht.readTemperature();
   humedad = dht.readHumidity();
   calidad = analogRead(A0);
   String datos_a_enviar = "";
-  
+
   delay(5000);
 }
