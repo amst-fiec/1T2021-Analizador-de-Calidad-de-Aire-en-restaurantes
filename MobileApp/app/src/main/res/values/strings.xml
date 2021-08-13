@@ -11,4 +11,6 @@
     <string name="login_failed">"Login failed"</string>
     <string name="txt_user">Dispositivo:</string>
     <string name="list_devices">Lista Dispositivos:</string>
+    <string name="btn_editRestaurantes">Editar Restaurante:</string>
+    <string name="btn_addDevice">Agregar Dispositivos:</string>
 </resources>

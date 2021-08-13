@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2196F3"
+    android:background="#060707"
     tools:context=".ListDevice">
 
 
@@ -16,7 +16,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="44dp"
         android:text="@string/list_devices"
-        android:textColor="#171615"
+        android:textColor="#FDFBF9"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -25,11 +25,34 @@
 
     <ListView
         android:id="@+id/list_v1"
-        android:layout_width="325dp"
-        android:layout_height="555dp"
+        android:layout_width="330dp"
+        android:layout_height="434dp"
         android:divider="@drawable/icono_google"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listDevice" />
+        app:layout_constraintTop_toBottomOf="@+id/listDevice">
+
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="408dp"
+        android:layout_height="184dp"
+        android:gravity="center|end"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="547dp">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_addDevice" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_editRestaurantes" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
