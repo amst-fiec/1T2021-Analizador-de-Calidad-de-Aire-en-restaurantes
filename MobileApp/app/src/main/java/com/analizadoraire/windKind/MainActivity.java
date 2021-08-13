@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            changeBasedOnRole();
+            changeBasedOnRole(currentUser);
         }
     }
 
@@ -55,9 +55,7 @@ public class MainActivity extends AppCompatActivity {
      * Devuelve true si es que el usuario es jefe false si es que el usuario es usuario
      * @return
      */
-    public void changeBasedOnRole(){
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-
+    public void changeBasedOnRole(FirebaseUser currentUser){
         if(currentUser != null){
             DocumentReference df = FirebaseFirestore.getInstance().collection("usuarios").document(currentUser.getUid());
             df.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -70,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                                 Intent intent = new Intent(context, RestaurantesParaJefes.class);
                                 startActivity(intent);
                             } else {
-                                Intent intent = new Intent(context, RestaurantesParaJefes.class);
+                                Intent intent = new Intent(context, Restaurantes.class);
                                 startActivity(intent);
                             }
                         }
