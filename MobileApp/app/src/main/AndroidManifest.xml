@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto">
         <activity
+            android:name=".RegistrarResUsuario"
+            android:exported="true" />
+        <activity
             android:name=".RestaurantesParaJefes"
             android:exported="true" />
         <activity android:name=".LoginActivity" />
