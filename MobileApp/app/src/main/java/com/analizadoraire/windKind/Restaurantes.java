@@ -56,4 +56,8 @@ public class Restaurantes extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void goToRegister(View view) {
+        
+    }
 }
