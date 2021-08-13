@@ -42,13 +42,7 @@ public class Restaurantes extends AppCompatActivity {
 
         Log.println(Log.DEBUG, "UUID", user.getUid());
 
-        updateData(name, email, uid, "okay normal");
-    }
-
-    public void updateData(String name, String email, String uid, String message){
-        TextView data = (TextView) findViewById(R.id.data);
-
-        data.setText("Nombre: " + name + "\nEmail: " + email + "\nUUID: " + uid + "\nMessage: " + message);
+        
     }
 
     public void logOut(View view){
@@ -58,6 +52,6 @@ public class Restaurantes extends AppCompatActivity {
     }
 
     public void goToRegister(View view) {
-        
+
     }
 }
