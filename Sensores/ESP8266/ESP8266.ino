@@ -10,6 +10,7 @@
 #define DHTTYPE DHT11
 #define DHTpin 14
 String MacAddress = WiFi.macAddress();
+
 int PATCH(String payload);
 
 ESP8266WebServer server;
@@ -41,7 +42,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   HTTPClient http;
-  http.begin(client,"https//firestore.googleapis.com/v1/projects/analizadoraire/databases/(default)/documents/sensores/"+MacAddress+"currentDocument.exists=false");
+  http.begin(client,"https//firestore.googleapis.com/v1/projects/analizadoraire/databases/(default)/documents/sensores/500291ECB86B?currentDocument.exists=false");
   temperatura = dht.readTemperature();
   humedad = dht.readHumidity();
   calidad = analogRead(A0);
