@@ -2,19 +2,24 @@ package com.analizadoraire.windKind;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class Restaurantes extends AppCompatActivity {
+import java.util.ArrayList;
 
-    // TODO: Change this with the proper view
+public class Restaurantes extends ListActivity {
+
+    ListView listaRestaurantes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +46,13 @@ public class Restaurantes extends AppCompatActivity {
         }
 
         Log.println(Log.DEBUG, "UUID", user.getUid());
+        Context context = getApplicationContext();
 
+        listaRestaurantes = (ListView) findViewById(R.id.lv_RestauranteUsuario);
 
+        ArrayList<String[]> datos = new ArrayList<>();
+
+        setListAdapter(new RestaurantesAdapter(context, R.layout.restaurant_user_card, datos));
     }
 
     public void logOut(View view){
