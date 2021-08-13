@@ -42,7 +42,7 @@ public class Restaurantes extends AppCompatActivity {
 
         Log.println(Log.DEBUG, "UUID", user.getUid());
 
-        
+
     }
 
     public void logOut(View view){
