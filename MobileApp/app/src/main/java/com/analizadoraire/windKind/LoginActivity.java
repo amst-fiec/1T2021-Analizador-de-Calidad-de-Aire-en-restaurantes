@@ -43,16 +43,17 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     // Cuando se vuelve visible
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent = new Intent(this, Restaurantes.class);
-            startActivity(intent);
-        }
-    }
+    // No way of reaching this code since the login view is only accesible through the MainActivity
+    //    @Override
+    //    public void onStart() {
+    //        super.onStart();
+    //        // Check if user is signed in (non-null) and update UI accordingly.
+    //        FirebaseUser currentUser = mAuth.getCurrentUser();
+    //        if(currentUser != null){
+    //            Intent intent = new Intent(this, Restaurantes.class);
+    //            startActivity(intent);
+    //        }
+    //    }
 
     public void signIn(View v){
 

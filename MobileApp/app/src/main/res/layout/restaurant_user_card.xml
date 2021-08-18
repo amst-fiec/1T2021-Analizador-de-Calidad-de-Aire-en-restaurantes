@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
-    android:background="#000000"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="@drawable/layout_bg">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -18,8 +18,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Nombre"
-            android:textColor="#42A5F5"
-            android:textSize="12sp" />
+            android:textColor="#000000"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/dirResUser"
@@ -28,8 +28,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Dirección"
-            android:textColor="#42A5F5"
-            android:textSize="12sp" />
+            android:textColor="#000000"
+            android:textSize="14sp" />
 
     </LinearLayout>
 
@@ -40,6 +40,8 @@
         android:layout_margin="7.5dp"
         android:layout_weight="1"
         android:text="Detalles"
-        android:textSize="10sp" />
+        android:background="#FF6200EE"
+        android:textColor="#FFFFFFFF"
+        android:textSize="14sp" />
 
 </LinearLayout>
