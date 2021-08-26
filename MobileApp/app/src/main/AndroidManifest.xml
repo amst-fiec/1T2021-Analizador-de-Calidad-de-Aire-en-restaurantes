@@ -3,6 +3,8 @@
     package="com.analizadoraire.windKind">
 
     <application
+        android:versionCode="1"
+        android:versionName="1.0"
         android:name="androidx.multidex.MultiDexApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
