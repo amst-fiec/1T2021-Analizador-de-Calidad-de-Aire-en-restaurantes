@@ -143,22 +143,43 @@ public class RestauranteUserDetailView extends AppCompatActivity {
                                             humedad.setText("Humedad: Posible estática (" + String.valueOf(valHum) + "%)");
                                         }
 
-                                        int valTemp = (int) Math.toIntExact((Long) dataSnapshot.child("temperatura").getValue());
-                                        if (valTemp < 22){
-                                            setAlerta = true;
-                                            temperatura.setText("Temperatura: Muy frío (" + String.valueOf(valTemp) + "°C)");
-                                        } else if (valTemp < 24){
-                                            setAlerta = setAlerta || false;
-                                            temperatura.setText("Temperatura: Frío (" + String.valueOf(valTemp) + "°C)");
-                                        } else if (valTemp < 25){
-                                            setAlerta = setAlerta || false;
-                                            temperatura.setText("Temperatura: Comfort (" + String.valueOf(valTemp) + "°C)");
-                                        } else if (valTemp < 27){
-                                            setAlerta = true;
-                                            temperatura.setText("Temperatura: Caliente (" + String.valueOf(valTemp) + "°C)");
-                                        } else {
-                                            setAlerta = true;
-                                            temperatura.setText("Temperatura: Sofocante (" + String.valueOf(valTemp) + "°C)");
+                                        Object valTempPre = dataSnapshot.child("temperatura").getValue();
+                                        try {
+                                            Long valTemp = (Long) valTempPre;
+                                            if (valTemp < 22){
+                                                setAlerta = true;
+                                                temperatura.setText("Temperatura: Muy frío (" + String.valueOf(valTemp) + "°C)");
+                                            } else if (valTemp < 24){
+                                                setAlerta = setAlerta || false;
+                                                temperatura.setText("Temperatura: Frío (" + String.valueOf(valTemp) + "°C)");
+                                            } else if (valTemp < 25){
+                                                setAlerta = setAlerta || false;
+                                                temperatura.setText("Temperatura: Comfort (" + String.valueOf(valTemp) + "°C)");
+                                            } else if (valTemp < 27){
+                                                setAlerta = true;
+                                                temperatura.setText("Temperatura: Caliente (" + String.valueOf(valTemp) + "°C)");
+                                            } else {
+                                                setAlerta = true;
+                                                temperatura.setText("Temperatura: Sofocante (" + String.valueOf(valTemp) + "°C)");
+                                            }
+                                        } catch(Exception e) {
+                                            Double valTemp = (Double) valTempPre;
+                                            if (valTemp < 22){
+                                                setAlerta = true;
+                                                temperatura.setText("Temperatura: Muy frío (" + String.valueOf(valTemp) + "°C)");
+                                            } else if (valTemp < 24){
+                                                setAlerta = setAlerta || false;
+                                                temperatura.setText("Temperatura: Frío (" + String.valueOf(valTemp) + "°C)");
+                                            } else if (valTemp < 25){
+                                                setAlerta = setAlerta || false;
+                                                temperatura.setText("Temperatura: Comfort (" + String.valueOf(valTemp) + "°C)");
+                                            } else if (valTemp < 27){
+                                                setAlerta = true;
+                                                temperatura.setText("Temperatura: Caliente (" + String.valueOf(valTemp) + "°C)");
+                                            } else {
+                                                setAlerta = true;
+                                                temperatura.setText("Temperatura: Sofocante (" + String.valueOf(valTemp) + "°C)");
+                                            }
                                         }
 
                                         int valCalidad = (int) Math.toIntExact((Long) dataSnapshot.child("calidad").getValue());
