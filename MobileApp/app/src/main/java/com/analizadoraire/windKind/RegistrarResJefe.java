@@ -75,6 +75,7 @@ public class RegistrarResJefe extends AppCompatActivity {
         String sUS = ubSen.getText().toString();
         if (sUS.equals("")){
             Log.println(Log.DEBUG, "#######################", "US fail");
+            Toast.makeText(RegistrarResJefe.this, "Ingrese todos los datos", Toast.LENGTH_LONG).show();
             return false;
         }
 
@@ -116,11 +117,13 @@ public class RegistrarResJefe extends AppCompatActivity {
                 }
             });
         } else {
+            Toast.makeText(RegistrarResJefe.this, "Ingrese todos los datos", Toast.LENGTH_LONG).show();
             return false;
         }
 
         String sDir = dir.getText().toString();
         if (!sDir.equals("")){
+            Toast.makeText(RegistrarResJefe.this, "Ingrese todos los datos", Toast.LENGTH_LONG).show();
             Log.println(Log.DEBUG, "#######################", "Dir all good");
             data.put("direccion", sDir);
         } else {
@@ -129,6 +132,7 @@ public class RegistrarResJefe extends AppCompatActivity {
 
         String sNom = name.getText().toString();
         if (!sNom.equals("")){
+            Toast.makeText(RegistrarResJefe.this, "Ingrese todos los datos", Toast.LENGTH_LONG).show();
             Log.println(Log.DEBUG, "#######################", "Name all good");
             data.put("nombre", sNom);
         } else {
@@ -137,6 +141,7 @@ public class RegistrarResJefe extends AppCompatActivity {
 
         String sSuc = suc.getText().toString();
         if (!sSuc.equals("")){
+            Toast.makeText(RegistrarResJefe.this, "Ingrese todos los datos", Toast.LENGTH_LONG).show();
             Log.println(Log.DEBUG, "#######################", "Suc all good");
             int iSuc = (int) Integer.parseInt(sSuc);
             data.put("numSucursal", iSuc);
@@ -146,6 +151,7 @@ public class RegistrarResJefe extends AppCompatActivity {
 
         String sTel = tel.getText().toString();
         if (!sTel.equals("")){
+            Toast.makeText(RegistrarResJefe.this, "Ingrese todos los datos", Toast.LENGTH_LONG).show();
             Log.println(Log.DEBUG, "#######################", "Tel all good");
             data.put("telefono", sTel);
         } else {
@@ -153,6 +159,7 @@ public class RegistrarResJefe extends AppCompatActivity {
         }
 
         if (ret[1]) {
+            Toast.makeText(RegistrarResJefe.this, "Ingrese todos los datos", Toast.LENGTH_LONG).show();
             Log.println(Log.DEBUG, "#######################", "If ret[1]");
             return false;
         }
