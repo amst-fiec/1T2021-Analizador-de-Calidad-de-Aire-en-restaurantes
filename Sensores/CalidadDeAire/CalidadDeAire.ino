@@ -1,72 +1,41 @@
 #include "DHT.h"
-#define DHTTYPE DHT11
-
-float temperatura = 0;
-float humedad = 0;
-float medidaMQ135 = 0;
-float calidadAire = 0;
-int pinMQ135 =A1;
-int pinDHT11=3;
-int pinSalTemp = 5;
-int pinSalHum = 6;
-
-int pinLEDR=4;
-int pinVERDE=5;
-float enviarTemp = 0;
-float enviarHum = 0;
-float enviarCal = 0;
-
-DHT dht(pinDHT11,DHTTYPE);//iniciar dht11
-
+#include <SoftwareSerial.h>
+#define DHTPIN 2
+#define DHTTYPE DHT11 // DHT 11
+#define LEDVERDE 5
+#define LEDROJO 6
+#define PILA 1
+int analogValor;
+float voltaje = 0;
+float minimo = 2.7;
+SoftwareSerial espSerial(5, 6);//Definición pines de serial
+DHT dht(DHTPIN, DHTTYPE);
+String str;
 void setup() {
+  Serial.begin(115200);
+  espSerial.begin(115200);
   dht.begin();
-  Serial.begin(9600);
+  pinMode(LEDVERDE, OUTPUT);
+  pinMode(LEDROJO, OUTPUT);
+  delay(2000);
 }
-
-void loop() {
-  // put your main code here, to run repeatedly:
-  temperatura = dht.readTemperature();
-  humedad = dht.readHumidity();
-  medidaMQ135 = analogRead(pinMQ135);
-  Serial.println(medidaMQ135,DEC);
-  Serial.println(temperatura);
-  Serial.print("°C");
-  Serial.println(humedad);
-  Serial.print("%");
+void loop(){
+  //Lecturas de sensores
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+  float calidad = analogRead(A0);
+  str = String(h) + String(";") + String(t)+ String(";") + String(calidad);//Envío de info a ESP
   
-  //Advertencias
-  if (medidaMQ135<181){
-      Serial.print("BUEN NIVEL DE GAS");  
-  }else if(medidaMQ135>=181 && medidaMQ135<225){
-    Serial.print("POBRE NIVEL DE GAS");  
-  }else if(medidaMQ135>=225 && medidaMQ135<300){
-    Serial.print("MAL NIVEL DE GAS");  
-  }else if(medidaMQ135>=300 && medidaMQ135<350){
-    Serial.print("Muerto");  
-  }else if(medidaMQ135>=350){
-    Serial.print("TOXICO");  
-  }
+  analogValor = analogRead(PILA);
+  voltaje = 0.0048 * analogValor;
+
+/*Codigo para leer batería*/
+  if (voltaje >= minimo) {
+    digitalWrite (LEDVERDE, HIGH);
+    digitalWrite (LEDROJO, LOW);
+  } else {
+    digitalWrite (LEDROJO, HIGH);
+    digitalWrite (LEDVERDE, LOW);
+  }delay(4000);
   
-
-  if (temperatura<22){
-    Serial.print("PELIGRO MUY FRIO");  
-  }else if(temperatura>=22 && temperatura<24){
-    Serial.print("FRIO");  
-  }else if(temperatura>=24 && temperatura<25){
-    Serial.print("CONFORT");  
-  }else if(temperatura>=25 && temperatura<27){
-    Serial.print("CALIENTE");  
-  }else if(temperatura>27){
-    Serial.print("PELIGRO SOFOCANTE");  
-  }
-
-  if(humedad>=50){
-    Serial.print("PELIGRO HUMEDAD");
-  }else if(humedad>=33 && humedad<40){
-    Serial.print("CONFORT HUMEDAD");
-  }
-
- // analogWrite(pinSalTemp,temperatura);
- // analogWrite(pinSalHum, humedad);
-  delay(10000);
 }
