@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -33,15 +34,35 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_verResUser"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="7.5dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="Detalles"
-        android:background="#FF6200EE"
-        android:textColor="#FFFFFFFF"
-        android:textSize="14sp" />
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_verResJefe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="7.5dp"
+            android:layout_weight="1"
+            android:text="Detalles"
+            android:background="#FF6200EE"
+            android:textColor="#FFFFFFFF"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_delResJefe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="7.5dp"
+            android:layout_weight="1"
+            android:background="#EF5350"
+            android:text="Eliminar"
+            android:textColor="#FFFFFFFF"
+            android:textSize="14sp"
+            app:backgroundTint="#EF5350" />
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.analizadoraire.windKind;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
+
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class RestaurantesAdapter extends ArrayAdapter<String> {
 
@@ -59,7 +62,12 @@ public class RestaurantesAdapter extends ArrayAdapter<String> {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Dentro del click " + mString.get(position)[2], Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, RestauranteUserDetailView.class);
+                intent.putExtra("RES_ID", mString.get(position)[2]);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+
+                // Toast.makeText(context, "Dentro del click " + mString.get(position)[2], Toast.LENGTH_SHORT).show();
             }
         });
 

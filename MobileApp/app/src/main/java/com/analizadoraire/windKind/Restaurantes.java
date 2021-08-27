@@ -3,7 +3,6 @@ package com.analizadoraire.windKind;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -24,10 +23,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Restaurantes extends ListActivity {
 
@@ -61,7 +57,6 @@ public class Restaurantes extends ListActivity {
                             final int[] counter = {0};
                             ArrayList<String[]> datos = new ArrayList<>();
 
-                            Log.println(Log.DEBUG, "restaurantes: ", String.valueOf(Objects.requireNonNull(doc.getData().get("restaurantes"))));
                             ArrayList<DocumentReference> referencias = ((ArrayList<DocumentReference>) Objects.requireNonNull(doc.getData().get("restaurantes")));
 
                             referencias.forEach((n) -> {
@@ -73,8 +68,8 @@ public class Restaurantes extends ListActivity {
                                             String[] resData = new String[3];
                                             resData[0] = String.valueOf(res.getData().get("nombre"));
                                             resData[1] = String.valueOf(res.getData().get("direccion"));
-                                            resData[2] = String.valueOf(n);
-                                            Log.println(Log.DEBUG, "restaurantes: ", "Completed " + String.valueOf(resData) + " and exists");
+                                            resData[2] = String.valueOf(n.getId());
+                                            Log.println(Log.DEBUG, "restaurantes: ", "Completed " + String.valueOf(n.getId()) + " and exists");
                                             datos.add(resData);
                                             counter[0] += 1;
                                             if (counter[0] == referencias.size()){

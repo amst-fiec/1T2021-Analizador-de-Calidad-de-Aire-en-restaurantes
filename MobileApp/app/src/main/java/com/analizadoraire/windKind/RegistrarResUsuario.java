@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -85,6 +86,15 @@ public class RegistrarResUsuario extends AppCompatActivity {
                                                         update.put("restaurantes", referencias);
 
                                                         df.set(update, SetOptions.merge());
+
+                                                        Handler handler = new Handler();
+                                                        handler.postDelayed(new Runnable() {
+                                                            @Override
+                                                            public void run() {
+                                                                Intent intent = new Intent(RegistrarResUsuario.this, Restaurantes.class);
+                                                                startActivity(intent);
+                                                            }
+                                                        }, 100);
                                                     }
                                                 }
                                             }
